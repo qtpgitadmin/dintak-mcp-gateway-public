@@ -25,8 +25,10 @@ MCP client config:
 
 You'll be redirected to Dintak to log in (or create an account) the first
 time you use a tool that requires authentication (`create_job`,
-`update_job`, `apply_to_job`). `search_jobs` works for guests without
-logging in.
+`update_job`, `request_resume_upload_link`, `upload_resume`,
+`list_resumes`, `list_cover_letters`, `save_cover_letter`,
+`get_cover_letter`, `apply_to_job`). `search_jobs` works for guests
+without logging in.
 
 ## ChatGPT / other MCP clients
 
@@ -44,10 +46,16 @@ first time a gated tool is called.
 
 | Tool | Auth required | Notes |
 | --- | --- | --- |
-| `search_jobs` | No | Semantic search, ranked by resume-match score if you have a resume on file. |
-| `create_job` | Yes | Creates a posting for your company. |
-| `update_job` | Yes | You must own the job. |
-| `apply_to_job` | Yes | Applies to a Dintak job, or forwards to an external application URL when the posting is external. |
+| `search_jobs` | No | Semantic search, ranked by resume-match score if a resume is supplied. |
+| `create_job` | Yes | Creates a posting for your company from a natural-language request. |
+| `update_job` | Yes | You must own the job. Only the fields you provide are changed. |
+| `request_resume_upload_link` | Yes | Returns a one-time link to upload a resume file in your own browser (preferred over pasting resume text in chat). |
+| `upload_resume` | Yes | Uploads a resume file provided in-chat (base64) to your Dintak account. |
+| `list_resumes` | Yes | Lists your uploaded resumes so you can reuse one instead of re-uploading. |
+| `list_cover_letters` | Yes | Lists your saved cover letters. |
+| `save_cover_letter` | Yes | Saves a cover letter for reuse across applications. |
+| `get_cover_letter` | Yes | Fetches the full text of a saved cover letter by id. |
+| `apply_to_job` | Yes | Applies to a Dintak job (optionally with a resume/cover letter), or forwards to an external application URL when the posting is external. |
 
 ## Full documentation
 
