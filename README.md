@@ -3,8 +3,8 @@
 Public remote **MCP (Model Context Protocol)** server that connects Claude
 (Claude Desktop, claude.ai, and Claude-API agents), ChatGPT, and other
 MCP-compatible clients to [Dintak](https://www.dintak.com)'s job platform —
-semantic job search, job posting, and applying to jobs, with resume-to-job
-match scoring.
+semantic job search, job posting, applying to jobs, and posting to the
+Dintak feed, with resume-to-job match scoring.
 
 > **This repository is a public documentation mirror.** It intentionally
 > contains only the README and the MCP server manifest (`server.json`) —
@@ -39,6 +39,7 @@ See the docs page above for the exact, up-to-date snippets for your client.
 | `search_jobs` | Guest-allowed. Semantic (vector-embedding) job search, ranked by resume-fit match score when a resume (or resume text) is supplied for the search. Optional filters: location, job type, workplace (remote/hybrid/on-site), career level, salary range. |
 | `create_job` | Requires a connected Dintak account. Creates a job posting on behalf of the authenticated user's company from a single natural-language request. |
 | `update_job` | Requires a connected Dintak account. Updates a job posting the caller owns; only the fields provided are changed. |
+| `create_post` | Requires a connected Dintak account. Publishes a text post to the caller's Dintak feed. New posts go through moderation before becoming visible to others. |
 | `request_resume_upload_link` | Requires a connected Dintak account. Returns a one-time secure web link the user opens in their own browser to upload a resume file directly to Dintak — the preferred way to attach a resume without pasting its raw text into chat. |
 | `upload_resume` | Requires a connected Dintak account. Uploads a resume file (base64-encoded, provided in-chat) to the connected user's Dintak account for use with `apply_to_job`. |
 | `list_resumes` | Requires a connected Dintak account. Lists the authenticated user's uploaded resumes (most recent first) so one can be picked for `apply_to_job` instead of re-uploading. |

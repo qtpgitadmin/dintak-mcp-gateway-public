@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.dintak/dintak-mcp-gateway",
-  "description": "Semantic job search, posting, and apply for Dintak, with resume-to-job match scoring.",
-  "version": "0.2.0",
+  "description": "Semantic job search, posting, apply, and feed posts for Dintak, with resume-to-job match scoring.",
+  "version": "0.3.0",
   "repository": {
     "url": "https://github.com/qtpgitadmin/dintak-mcp-gateway-public",
     "source": "github"

@@ -25,7 +25,7 @@ MCP client config:
 
 You'll be redirected to Dintak to log in (or create an account) the first
 time you use a tool that requires authentication (`create_job`,
-`update_job`, `request_resume_upload_link`, `upload_resume`,
+`update_job`, `create_post`, `request_resume_upload_link`, `upload_resume`,
 `list_resumes`, `list_cover_letters`, `save_cover_letter`,
 `get_cover_letter`, `apply_to_job`). `search_jobs` works for guests
 without logging in.
@@ -49,6 +49,7 @@ first time a gated tool is called.
 | `search_jobs` | No | Semantic search, ranked by resume-match score if a resume is supplied. |
 | `create_job` | Yes | Creates a posting for your company from a natural-language request. |
 | `update_job` | Yes | You must own the job. Only the fields you provide are changed. |
+| `create_post` | Yes | Publishes a text post to your Dintak feed. Goes through moderation before becoming visible to others. |
 | `request_resume_upload_link` | Yes | Returns a one-time link to upload a resume file in your own browser (preferred over pasting resume text in chat). |
 | `upload_resume` | Yes | Uploads a resume file provided in-chat (base64) to your Dintak account. |
 | `list_resumes` | Yes | Lists your uploaded resumes so you can reuse one instead of re-uploading. |
