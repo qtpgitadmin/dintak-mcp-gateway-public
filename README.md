@@ -48,6 +48,25 @@ See the docs page above for the exact, up-to-date snippets for your client.
 | `get_cover_letter` | Requires a connected Dintak account. Fetches the full text of a previously saved cover letter by id. |
 | `apply_to_job` | Requires a connected Dintak account. Submits an application to a Dintak-hosted job (optionally attaching a resume and/or cover letter), or forwards to an external job when the posting's application method is external and a source URL is provided. |
 
+## Rate limits
+
+Write tools are rate-limited per authenticated user (sliding window).
+When a limit is hit, the tool returns a rate-limit message with a
+retry-after time.
+
+| Tool | Limits |
+| --- | --- |
+| `create_job` | 10/hour, 30/day |
+| `update_job` | 20/hour |
+| `apply_to_job` | 20/hour, 50/day |
+| `upload_resume` | 10/hour |
+| `save_cover_letter` | 20/hour |
+| `create_post` | 20/hour, 60/day |
+
+Read tools (`search_jobs`, `list_resumes`, `list_cover_letters`,
+`get_cover_letter`) and `request_resume_upload_link` are not limited by
+the gateway.
+
 ## Authentication
 
 OAuth 2.1, authenticating through Dintak's own authorization server

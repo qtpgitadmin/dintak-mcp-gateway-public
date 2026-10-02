@@ -58,6 +58,22 @@ first time a gated tool is called.
 | `get_cover_letter` | Yes | Fetches the full text of a saved cover letter by id. |
 | `apply_to_job` | Yes | Applies to a Dintak job (optionally with a resume/cover letter), or forwards to an external application URL when the posting is external. |
 
+## Rate limits
+
+Write tools are rate-limited per authenticated user (sliding window). When
+a limit is hit, the tool returns a rate-limit message with a retry-after time.
+
+| Tool | Limits |
+| --- | --- |
+| `create_job` | 10/hour, 30/day |
+| `update_job` | 20/hour |
+| `apply_to_job` | 20/hour, 50/day |
+| `upload_resume` | 10/hour |
+| `save_cover_letter` | 20/hour |
+| `create_post` | 20/hour, 60/day |
+
+Read tools and `request_resume_upload_link` are not limited by the gateway.
+
 ## Full documentation
 
 For a complete walkthrough with screenshots and example prompts, see
