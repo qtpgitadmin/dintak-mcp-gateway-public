@@ -1,0 +1,4 @@
+# graph-harness-engineering (local only)
+ghe/
+.claude/worktrees/
+.claude/settings.local.json
